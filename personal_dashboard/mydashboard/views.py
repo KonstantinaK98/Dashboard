@@ -12,7 +12,7 @@ def login_view(request):
             return redirect('home')
         else:
             message = 'Invalid login credentials'
-            return render(request, 'login.html', {'message': message})
+            return render(request, 'mydashboard/login.html', {'message': message})
     else:
-        return render(request, 'login.html')
+        return render(request, 'mydashboard/login.html')
 
