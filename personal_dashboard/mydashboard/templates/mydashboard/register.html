@@ -9,7 +9,7 @@
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
     <link rel="shortcut icon" type="image/png" href="{% static 'favicon.ico' %}">
 <style>
-#line {
+#line{
     color: #b98800;
 }    
 body{
@@ -18,7 +18,6 @@ body{
     background-size: cover;
     background-attachment: fixed;
 }
-
 .form-control, .form-control:focus, .input-group-addon {
     border-color: #e1e1e1;
 }
@@ -106,47 +105,59 @@ body{
 </head>
 
 
+<body>
+    
+
 <div class="signup-form">
     <form action="" method="post">
         {% csrf_token %}
-        <h2>Login</h2>
-		<p>Please fill in these fields to login!</p>
+        <h2>Sign Up</h2>
+		<p>Please fill in this form to create an account!</p>
 		<hr>
         <div class="form-group">
 			<div class="input-group">
 				<span class="input-group-addon"><i class="fa fa-user"></i></span>
-				<input type="text" name="username">
+				{{form.username}}
 			</div>
         </div>
         <div class="form-group">
 			<div class="input-group">
 				<span class="input-group-addon"><i class="fa fa-paper-plane"></i></span>
-				<input type="password" name="password">
+				{{form.email}}
 			</div>
         </div>
-		
 		<div class="form-group">
-            <button type="submit" class="btn btn-primary">Login</button>
+			<div class="input-group">
+				<span class="input-group-addon"><i class="fa fa-lock"></i></span>
+				{{form.password1}}
+			</div>
         </div>
-        {% if messages %}
-            <ul class="messages">
-                {% for message in messages %}
-                <li{% if message.tags %} class="{{ message.tags }}"{% endif %}>{{ message }}</li>
-                {% endfor %}
-            </ul>
-        {% endif %}
+		<div class="form-group">
+			<div class="input-group">
+				<span class="input-group-addon">
+					<i class="fa fa-lock"></i>
+					<i class="fa fa-check"></i>
+				</span>
+				{{form.password2}}
+			</div>
+        </div>
+		<div class="form-group">
+            <button type="submit" class="btn btn-primary">Sign Up</button>
+        </div>
+        {{form.errors}}
     </form>
-	<div id="line" class="text-center">Don't have an account? <a style="color: blue;" href="{% url 'registerPage' %}"> Register here</a></div>
+	<div id="line" class="text-center">Already have an account? <a style="color: blue;" href="{% url 'loginPage' %}">Login here</a></div>
 </div>      
 </body>   
 <script>
     var form_fields = document.getElementsByTagName('input')
 		form_fields[1].placeholder='Username..';
-		form_fields[2].placeholder='Enter password...';
+		form_fields[2].placeholder='Email..';
+		form_fields[3].placeholder='Enter password...';
+        form_fields[4].placeholder='Re-enter Password...';
         
         for (var field in form_fields){	
-            form_fields[field].className += ' form-control'
-            form_fields[field].required = true;
+			form_fields[field].className += ' form-control'
 		}
 </script>
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>

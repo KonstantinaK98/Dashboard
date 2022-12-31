@@ -1,0 +1,97 @@
+#footer {
+    position: fixed;
+    left: 0;
+    bottom: 0;
+    width: 100%;
+    text-align: center;
+}
+
+hr {
+    clear:left;
+}
+
+.card {
+    float: left;
+    margin-right: 10px;
+    margin-left: 10px;
+    margin-top: 8px;
+    margin-bottom: 20px;
+    width: 300px;
+    height: 350px;
+    max-height: 350px;
+    border-color: black;
+    
+}
+
+.card2 {
+    margin-bottom:25px;
+    width: 500px;
+    padding-left: 90px;
+    padding-bottom:10px;
+    padding-top: 20px;
+    padding-right: 70px;
+    border: 1px solid black;
+    margin: auto;
+    border-radius: 10px;
+}
+
+#Button{
+    width: 120px;
+    margin-left: 90px;
+}
+
+#ButtonUpSet{
+    width: 120px;
+    margin-left: 20px;
+}
+
+#SavePassButton{
+    width: 150px;
+    margin-left: 160px;
+}
+
+#deleteImg{
+    max-width: 38px;
+    position: absolute;
+    top: 10px;
+    right: 4px;
+}
+
+.card-body{
+    overflow: auto;
+}
+
+.card-text {
+    padding: 3px;
+}
+
+#noteHeader {
+    color: black;
+}
+
+#editImg {
+    width:45px;
+    cursor: pointer;
+    float: right;
+}
+
+#dateText {
+    padding-left: 50px;
+}
+
+.form-style {
+    width: 500px;
+    margin: 0 auto;
+    margin-top: 20px;
+    margin-left: 20px;
+}
+
+.createNoteLink {
+    float: left;
+    color:black;
+}
+
+.navbar{
+    font-size: 20px;
+}
+
