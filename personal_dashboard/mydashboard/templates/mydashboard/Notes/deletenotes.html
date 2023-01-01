@@ -1,0 +1,12 @@
+{% extends 'mydashboard/base.html' %}
+{% load static %}
+{% block content %}
+
+<p>Are you sure you want to delete "{{ note }}"?</p>
+<form style="position: fixed; top: 0; left: 24%;" action="{% url 'deleteNote' note.id %}" method="post">
+    {%csrf_token%}
+    <a href="{% url 'notes' %}">Cancel</a>
+    <input type="submit" name="Confirm">
+
+</form>
+{% endblock %}
