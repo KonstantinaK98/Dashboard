@@ -15,6 +15,9 @@ class Note(models.Model):
     color = models.CharField(max_length=10,choices=colors,default="Teal")
     user = models.ForeignKey(User, on_delete=models.CASCADE, null=True)
 
+    def __str__(self):
+        return f"{self.title}"
+
 # Create your models here.
 class Project(models.Model):
     colors = [
