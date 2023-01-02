@@ -24,8 +24,8 @@
         {% endfor %}
 {% endif %}
 
-<span style="position: fixed; top: 0; left: 18%;"  class="createNoteLink"><h1 id="myNotes">My Notes ({{notes_num}}) </h1></span>
-<span  style="position: fixed; top: 0; left: 30%;" class="createNoteLink"><a href="{% url 'createNote' %}"><h1> + </h1></a></span>
+<span style="position: fixed; top: 0; left: 18%;color: rgb(222, 23, 23); font-family: 'Lucida Console' " class="createNoteLink"><h1 id="myNotes">My Notes ({{notes_num}}) </h1></span>
+<span  style="position: fixed; top: 0; left: 35%; color: rgb(110, 241, 123) ;" class="createNoteLink"><a href="{% url 'createNote' %}"><h1> + </h1></a></span>
 <div style="clear: both;">
     {% for note in notes %}
 

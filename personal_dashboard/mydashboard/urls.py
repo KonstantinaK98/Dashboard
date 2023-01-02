@@ -12,4 +12,5 @@ urlpatterns = [
     path('deleteNote/<str:pk_delete>/', views.deleteNote, name="deleteNote"),
     path('createNote', views.createNote, name="createNote"),
     path('',views.loginPage, name='loginPage'),
+    path('calendar/',views.calendar, name="calendar"),
 ]

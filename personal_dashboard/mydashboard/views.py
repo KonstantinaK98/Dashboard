@@ -112,3 +112,9 @@ def deleteNote(request, pk_delete):
         "note":note,
     }
     return render(request, 'mydashboard/Notes/deletenotes.html', context)       
+
+@login_required(login_url='loginPage')
+@allowed_users(allowed_roles=['user','admin'])
+def calendar(request):
+    return render(request, "mydashboard/Calendar/calendar.html")
+    
