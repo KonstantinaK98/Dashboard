@@ -1,0 +1,46 @@
+{% extends 'mydashboard/base.html' %}
+{% load static %}
+
+{% block script %}
+    <script>
+        setTimeout(function () {
+                    $("#alert_div").fadeTo(2000, 500).slideUp(500, function () {
+                        $("#alert_div").remove();
+                    });
+                }, 2000);
+            
+    </script>
+{% endblock %}
+
+
+{% block content %}
+<div class="main-content">
+        {% if messages %}
+            {% for message in messages %}
+                <div id="alert_div" class="alert {{ message.tags }} alert-dismissible" role="alert" >
+                    <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                    </button>
+                    <strong>{{ message }}</strong>
+                </div>
+            {% endfor %}
+    {% endif %}
+
+    <h3><span>Create Project <a href="{% url 'createProject' %}">+</a></span></h3>
+     {% for project in projects %}
+        <div class="card">
+            <div class="card-header {{project.color}}"><a id="noteHeader" href="{% url 'editProject' project.id %}"><h4>{{project.title}}</h4></a>
+                <a href="{% url 'deleteProject' project.id %}"><img id="deleteImg" src="{% static '/images/trash.png' %}"></a></div>
+            <div class="card-body">
+                <p class="card-text">{{project.description}}</p>
+            </div>
+            <hr>
+            <div>
+                <p id="dateText">{{project.date_created}}</p>
+            </div>
+        </div>    
+    {% endfor %}           
+</div>
+    
+    
+{% endblock %}

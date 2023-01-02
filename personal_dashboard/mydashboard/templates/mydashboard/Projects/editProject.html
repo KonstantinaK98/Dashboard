@@ -1,0 +1,37 @@
+{% extends 'mydashboard/base.html' %}
+{% load static %}
+{% block content %}
+
+<div class="main-content">
+    <h1 style="text-align: center;">Edit Project</h1>
+
+     
+    <div class="card2">
+        <form action="" method="POST" class="form-style">
+            {% csrf_token %}
+            <div class="form-row">
+                <div class="form-group">
+                    {{form.title.label}}
+                    <p>{{form.title}}</p>
+                </div>
+            </div>
+            <div class="form-row">
+                <div class="form-group">
+                    {{form.description.label}}
+                    <p>{{form.description}}</p>
+                </div>
+            </div>
+            <div class="form-row">
+                <div class="form-group">
+                    {{form.color.label}}
+                    {{form.color}}
+                </div>
+            </div>
+            
+            <button type="submit" id="Button" class="btn btn-primary">Update</button>
+        </form>
+    </div>    
+</div>
+
+
+{% endblock %}
