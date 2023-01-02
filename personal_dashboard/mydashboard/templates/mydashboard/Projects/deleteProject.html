@@ -1,0 +1,15 @@
+{% extends 'mydashboard/base.html' %}
+{% load static %}
+{% block content %}
+
+<div class="main-content">
+    <p>Are you sure you want to delete "{{ project }}"?</p>
+    <form action="{% url 'deleteProject' project.id %}" method="post">
+        {%csrf_token%}
+        <a href="{% url 'projects' %}">Cancel</a>
+        <input type="submit" name="Confirm">
+    
+    </form>
+</div>
+
+{% endblock %}
