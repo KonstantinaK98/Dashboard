@@ -1,0 +1,50 @@
+{% extends 'mydashboard/base.html' %}
+{% block content %}
+<h1 style="text-align: center;">Create a Note</h1>
+
+     
+    <div class="card2">
+        <form action="" method="POST" class="form-style">
+            {% csrf_token %}
+            <div class="form-row">
+                <div class="form-group">
+                    {{form.title.label}}
+                    <p>{{form.title}}</p>
+                </div>
+            </div>
+            <div  class="form-row">
+                <div class="form-group">
+                    {{form.description.label}}
+                    <p>{{form.description}}</p>
+                </div>
+            </div>
+            <div class="form-row">
+                <div class="form-group">
+                    {{form.color.label}}
+                    {{form.color}}
+                </div>
+            </div>
+            <input type="hidden" id="myVar" name="variable" value="{{ id }}">
+                    {{form.user}}
+                
+                
+            
+            <button type="submit" id="Button" class="btn btn-primary">Create</button>
+        </form>
+    </div>
+
+
+<script>
+    var field = document.getElementsByTagName('select')[1]
+    var username = document.getElementById("myVar").value;
+    for (var j=0; j < field.options.length; j++){
+        if(field.options[j].value == username){
+            field.selectedIndex = j;
+            break;
+        }
+    }
+    field.hidden = true;
+
+</script>
+
+{% endblock %}

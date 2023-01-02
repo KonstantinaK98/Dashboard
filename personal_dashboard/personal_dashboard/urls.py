@@ -29,4 +29,9 @@ urlpatterns = [
     path('createProject', views.createProject, name='createProject'),
     path('editProject/<str:pk_project>/', views.editProject, name="editProject"),
     path('deleteProject/<str:pk_delete>/', views.deleteProject, name="deleteProject"),
+    path('notes', views.notes, name='notes'),
+    path('createNote', views.createNote, name='createNote'),
+    path('editNote/<str:pk_note>/', views.editNote, name="editNote"),
+    path('deleteNote/<str:pk_delete>/', views.deleteNote, name="deleteNote"),
+    path('calendar', views.calendar, name='calendar'),
 ]

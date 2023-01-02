@@ -1,0 +1,48 @@
+{% extends 'mydashboard/base.html' %}
+{% load static %}
+
+{% block script %}
+    <script>
+        setTimeout(function () {
+                    $("#alert_div").fadeTo(2000, 500).slideUp(500, function () {
+                        $("#alert_div").remove();
+                    });
+                }, 2000);
+            
+    </script>
+{% endblock %}
+{% block content %}
+    <div class="main-content">
+    
+        {% if messages %}
+            {% for message in messages %}
+                <div id="alert_div" class="alert {{ message.tags }} alert-dismissible" role="alert" >
+                    <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                    </button>
+                    <strong>{{ message }}</strong>
+                </div>
+            {% endfor %}
+        {% endif %}
+
+        <h3><span>Create Note <a href="{% url 'createNote' %}">+</a></span></h3>
+        <div style="clear: both;">
+            {% for note in notes %}
+
+                <div class="card">
+                    <div class="card-header {{note.color}}"><a id="noteHeader" href="{% url 'editNote' note.id %}"><h4>{{note.title}}</h4></a>
+                        <a href="{% url 'deleteNote' note.id %}"><img id="deleteImg" src="{% static '/images/trash.png' %}"></a></div>
+                    <div class="card-body">
+                        <p class="card-text">{{note.description}}</p>
+                    </div>
+                    <hr>
+                    <div>
+                        <p id="dateText">{{note.date_created}}</p>
+                    </div>
+                </div>    
+            {% endfor %}
+        </div>
+
+    
+    </div>
+{% endblock %}    
