@@ -4,7 +4,7 @@ from django.http import HttpResponse
 def unauthenticated_user(view_func):
     def wrapper_func(request, *args, **kwargs):
         if request.user.is_authenticated:
-            return redirect('login') #na valw dashboard
+            return redirect('loginPage') #na valw dashboard
         else:
             return view_func(request, *args, **kwargs)
     return wrapper_func      
@@ -28,7 +28,7 @@ def admin_only(view_func):
         if request.user.groups.exists():
             group = request.user.groups.all()[0].name
         if group == "user":
-            return redirect('login') # na valw dashboard
+            return redirect('loginPage') # na valw dashboard
         if group == "admin":
             return view_func(request, *args, **kwargs)
     return wrapper_func            
