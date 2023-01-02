@@ -148,6 +148,6 @@ hr {
     margin-left: 220px;
 }
 
-.alert_div {
-    width: 100%;
+#alert_div {
+    margin-right: 20px;
 }
