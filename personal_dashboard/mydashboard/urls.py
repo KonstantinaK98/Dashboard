@@ -11,6 +11,10 @@ urlpatterns = [
     path('editNote/<str:pk_note>/', views.editNote, name="editNote"),
     path('deleteNote/<str:pk_delete>/', views.deleteNote, name="deleteNote"),
     path('createNote', views.createNote, name="createNote"),
+    path('projects/', views.projects, name="projects"),
+    path('editProject/<str:pk_project>/', views.editProject, name="editProject"),
+    path('deleteProject/<str:pk_delete>/', views.deleteProject, name="deleteProject"),
+    path('createProject', views.createProject, name="createProject"),
     path('',views.loginPage, name='loginPage'),
     path('calendar/',views.calendar, name="calendar"),
 ]
